@@ -1,0 +1,37 @@
+
+  .photo {
+    display: inline-block; /* Строчно-блочный элемент */
+    position: relative; /* Относительное позиционирование */
+   }
+   .photo:hover::after {
+    content: attr(data-title); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 1%; top: 1%; /* Положение подсказки */
+    z-index: 1; /* Отображаем подсказку поверх других элементов */
+    background: rgba(255,255,230,0.9); /* Полупрозрачный цвет фона */
+    font-family: Arial, sans-serif; /* Гарнитура шрифта */
+    font-size: 11px; /* Размер текста подсказки */
+    padding: 5px 10px; /* Поля */
+    border: 1px solid #333; /* Параметры рамки */
+   }
+  div{
+      display: inline-block;
+  }
+  img{
+    height: 200px; 
+  }
+  body{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin-bottom: 0px;
+  }
+  label{
+    padding-top:20px;
+  }
+  
+  button{
+  margin-top: 20px;  
+  }  
+  .center{
+    text-align: center;
+  }
