@@ -35,13 +35,13 @@ app.get('/mimimi', function (req, res) {
     });
    
 });
-app.get('/contact', function (req, res) {
-    res.render('layout', { title: 'Send me a message', page: 'contact' , menuId:"contactPage"});
+app.get('/newMessage', function (req, res) {
+    res.render('layout', { title: 'Send a message', page: 'newPost' , menuId:"postPage"});
 });
 
 
 
-app.post('/contact' , function(req, res){
+app.post('/newMessage' , function(req, res){
     console.log(req.body);
     var message="User name: " + req.body.name +'\n'+"Email: " +req.body.email +'\n'+"Message: " +req.body.message;
     var ms = new Date();
