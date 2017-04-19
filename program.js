@@ -51,8 +51,6 @@ app.post('/contact' , function(req, res){
         if (err) {
             console.log(err);
         } });
-   // console.log(newMsg);
-    // res.render('layout', { title: 'Send me one more message', page: 'contact'});
     res.json(200, {status: 'success'});
 });
 
