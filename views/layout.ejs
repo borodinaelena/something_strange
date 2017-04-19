@@ -12,10 +12,17 @@
     <link rel="stylesheet" type="text/css" href="swal/dist/sweetalert.css">
 </head>
 
-</head>
-<body class="col-md-10 col-md-offset-1">
-   
-   <%- include(page);%>
+<body class="col-md-10 col-md-offset-1 body">
+
+    <ul class="nav nav-tabs nav-justified">
+        <li id="firstPage" class="menuItems"><a href="/" >First page</a></li>
+        <li id="contactPage" class="menuItems"><a href="/contact" >Send a message</a></li>
+        <li id="aboutUsPage" class="menuItems"><a href="/AboutUs" >About us</a></li>
+    </ul>
+<div class="container">  
+ <%- include(page);%>    
+</div>
+  
 
 </body>
 </html>

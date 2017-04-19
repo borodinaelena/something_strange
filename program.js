@@ -16,10 +16,10 @@ var Message = mongoose.model('message', { UserName: String, Email: String, Messa
 
 
 app.get('/', function (req, res) {
-  res.render('layout', { title: 'Welcome!', page: 'index'});
+  res.render('layout', { title: 'Welcome!', page: 'index', menuId:"firstPage"});
 });
 app.get('/AboutUs', function (req, res) {
-  res.render('layout', { title: 'I did it with ♥ =P', page: 'AboutUs'});
+  res.render('layout', { title: 'I did it with ♥ =P', page: 'AboutUs', menuId:"aboutUsPage"});
 });
   
 app.get('/mimimi', function (req, res) {
@@ -36,7 +36,7 @@ app.get('/mimimi', function (req, res) {
    
 });
 app.get('/contact', function (req, res) {
-    res.render('layout', { title: 'Send me a message', page: 'contact'});
+    res.render('layout', { title: 'Send me a message', page: 'contact' , menuId:"contactPage"});
 });
 
 
@@ -51,6 +51,7 @@ app.post('/contact' , function(req, res){
         if (err) {
             console.log(err);
         } });
+
     res.json(200, {status: 'success'});
 });
 

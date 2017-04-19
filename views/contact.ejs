@@ -1,11 +1,4 @@
 
-<ul class="nav nav-tabs nav-justified">
-    <li><a href="/" >First page</a></li>
-    <li  class ="active"><a href="/contact" >Send a message</a></li>
-    <li><a href="/AboutUs" >About us</a></li>
-</ul>
-
-
 <h1><%= title %></h1>
  <form onsubmit="return sendForm();" id='MessageForm'>
     <label for="inputName" class="col-sm-2 control-label">Name:</label>
@@ -46,11 +39,22 @@ if(name.length<5)
                     return false;
                 }      
             });
-        
-            swal("Your message has been sent!", "", "success")
+            // $('#inputName').val()="";
+            // $('#inputEmai').val()="";
+            // $('#inputMessage').val()="";
+             swal("Your message has been sent!", "", "success", function(isSucces){
+                if (isSucces) {
+                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                } else {
+                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            })  ;
         }
     }
+            
             return false;
 }
+
+$("#contactPage").addClass("active");
 
 </script>
