@@ -3,7 +3,7 @@
  <form onsubmit="return sendForm();" id='MessageForm'>
     <label for="inputName" class="col-sm-2 control-label">Name:</label>
     <input type="text" class="form-control col-md-3 " id="inputName" placeholder="Enter your name">
-    <label for="inputEmai" class="col-sm-2 control-label">Subject:</label>
+    <label for="inputSubject" class="col-sm-2 control-label">Subject:</label>
     <input type="text" class="form-control" id="inputSubject" placeholder="Subject">
     <label for="inputMessage" class="col-sm-2 control-label">Message:</label>
     <textarea class="form-control" rows="3" placeholder="Message input" id="inputMessage"></textarea>
@@ -15,14 +15,14 @@
 
 function sendForm(){
 var name= $('#inputName').val()+"";
-var Subject= $('#inputSubject').val()+"";
+var subject= $('#inputSubject').val()+"";
 var message= $('#inputMessage').val()+"";
 
 
 if(name.length<5)
     swal("Why your name is so short?", "Write a longer name!", "error")
     else{
-        if(message.length<5)
+        if(subject.length<5)
         swal("Try again!", "Your subject is so short...", "error")
         else{
             if (message.length<5)
@@ -33,10 +33,10 @@ if(name.length<5)
                 $('#inputMessage').val("");     
                 $.ajax({
                     method:"POST",
-                    url:'/contact',
+                    url:'/newMessage',
                     data: {
                         name: name,
-                        email: email,
+                        subject: subject,
                         message: message
                     },
                     success: function( response ) {

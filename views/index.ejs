@@ -7,4 +7,17 @@
 <script>
 $("#firstPage").addClass("active");
 </script>
-
+<ul class ="blog"> 
+   <% data.forEach(function(post){ %>
+    <li>
+       <h3><% JSON.stringify(post).UserName %> username <small>(Subject)</small></h3>
+       <button type="button" id="deleteBtn" class="btn"> <span class="glyphicon glyphicon-remove"></span></button>
+       
+       <p class="post">
+        some text   
+       </p>
+       <p><small>00.00.00 00:00</small></p>
+    </li>
+    
+    <% }); %>
+</ul>

@@ -18,7 +18,11 @@
   img{
     height: 200px; 
   }
+  body{
+    background-color: #84f8db;
+  }
   .container{
+    background: white;
     border-left: 1px solid LightGray;
     border-right: 1px solid LightGray;
     border-bottom: 1px solid LightGray;
@@ -43,3 +47,36 @@
   textarea{
     max-width: 100%;
   }
+  .blog li{
+    list-style-type: none;
+    background: #eefdff;
+    margin-right: 40px;
+    padding: 0px;
+    margin-bottom: 1px;
+  }
+  .blog li button{
+  margin: 0px;  
+  position: absolute;
+
+  }
+ .blog li h3{
+   background: #93daff;
+   margin: 0;
+   display: inline-block;
+   width: 97%;
+ }
+ .blog li h3,  .blog li h4, .blog li p{
+   padding: 5px 15px;
+ }
+ .blog li p small{
+   color: #777794;
+ }
+ .btn{
+   background: #ff7806;
+   border-color: #c94d04;
+   color:  white;
+ }
+
+ .nav>li>a:focus, .nav>li>a:hover {
+   background-color: #93daff;
+}

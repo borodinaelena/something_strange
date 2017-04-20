@@ -11,15 +11,19 @@ app.use(bodyParser.urlencoded({ extended: false }));;
 const fs = require('fs');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
-var Message = mongoose.model('message', { UserName: String, Email: String, MessageText: String });
-
-
+var Post = mongoose.model('messages', { UserName: String, Email: String, MessageText: String });
 
 app.get('/', function (req, res) {
-  res.render('layout', { title: 'Welcome!', page: 'index', menuId:"firstPage"});
+//    var temp=Post.find();
+//    console.log(temp);
+var data = Post.find().then(function(posts){
+    console.log(posts);
+      res.render('layout', { page: 'index', data: posts});
+
+});
 });
 app.get('/AboutUs', function (req, res) {
-  res.render('layout', { title: 'I did it with ♥ =P', page: 'AboutUs', menuId:"aboutUsPage"});
+  res.render('layout', { title: 'I did it with ♥ =P', page: 'AboutUs'});
 });
   
 app.get('/mimimi', function (req, res) {
@@ -36,22 +40,20 @@ app.get('/mimimi', function (req, res) {
    
 });
 app.get('/newMessage', function (req, res) {
-    res.render('layout', { title: 'Send a message', page: 'newPost' , menuId:"postPage"});
+    res.render('layout', { title: 'Send a message', page: 'newPost' });
 });
 
 
 
 app.post('/newMessage' , function(req, res){
     console.log(req.body);
-    var message="User name: " + req.body.name +'\n'+"Email: " +req.body.email +'\n'+"Message: " +req.body.message;
     var ms = new Date();
     var fname="./Files/" + ms.getFullYear()+ms.getDate()+ms.getDay()+ms.getHours()+ms.getMinutes()+ms.getSeconds()+".txt";
-    var newMsg = new Message({ UserName: req.body.name, Email: req.body.email, MessageText: req.body.message});
+    var newMsg = new Post({ UserName: req.body.name, Email: req.body.subject, MessageText: req.body.message});
     newMsg.save(function (err) {
         if (err) {
             console.log(err);
         } });
-
     res.json(200, {status: 'success'});
 });
 
