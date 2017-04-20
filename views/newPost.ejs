@@ -30,7 +30,8 @@ if(name.length<5)
             else{  
                 $('#inputName').val("");
                 $('#inputSubject').val("");
-                $('#inputMessage').val("");     
+                $('#inputMessage').val("");   
+                  
                 $.ajax({
                     method:"POST",
                     url:'/newMessage',

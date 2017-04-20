@@ -5,18 +5,34 @@
     Welcome to hell
 </p>
 <script>
-$("#firstPage").addClass("active");
+    $("#firstPage").addClass("active");
+
+    function deletePost(id){
+       $.ajax({
+                    method:"POST",
+                    url:'/',
+                    data: {
+                        id: id,
+                    },
+                    success: function( response ) {
+                        console.log(response); 
+                       
+                    }      
+                });   
+        swal("This message is deletted!", "", "success" )  ;            
+    }
 </script>
-<ul class ="blog"> 
-   <% data.forEach(function(post){ %>
+<ul class ="blog" onsubmit="return deletePost();" id ="blog"> 
+   <% data.forEach(function(post){ %>   
     <li>
-       <h3><% JSON.stringify(post).UserName %> username <small>(Subject)</small></h3>
-       <button type="button" id="deleteBtn" class="btn"> <span class="glyphicon glyphicon-remove"></span></button>
+       <h3><%- post.UserName %>  <small>(<%- post.Email %>)</small></h3>
+       <button type="button" id="" class="btn" onclick= "deletePost('<%- post._id %>')" > <span class="glyphicon glyphicon-remove"></span></button>
        
        <p class="post">
-        some text   
+        <%- post.MessageText %>   
        </p>
-       <p><small>00.00.00 00:00</small></p>
+       <p><small>
+           <%- post._id.getTimestamp().toString() %></small></p>
     </li>
     
     <% }); %>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+     <title>Hello world XD</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -10,19 +11,17 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="swal/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="swal/dist/sweetalert.css">
+    
 </head>
+    <body class="col-md-10 col-md-offset-1 body">
 
-<body class="col-md-10 col-md-offset-1 body">
-
-    <ul class="nav nav-tabs nav-justified">
-        <li id="firstPage" class="menuItems"><a href="/" >First page</a></li>
-        <li id="postPage" class="menuItems"><a href="/newMessage" >Send a message</a></li>
-        <li id="aboutUsPage" class="menuItems"><a href="/AboutUs" >About us</a></li>
-    </ul>
-<div class="container">  
- <%- include(page);%>    
-</div>
-  
-
-</body>
+        <ul class="nav nav-tabs nav-justified">
+            <li id="firstPage" class="menuItems"><a href="/" >First page</a></li>
+            <li id="postPage" class="menuItems"><a href="/newMessage" >Send a message</a></li>
+            <li id="aboutUsPage" class="menuItems"><a href="/AboutUs" >About us</a></li>
+        </ul>
+        <div class="container">  
+        <%- include(page);%>    
+        </div>
+    </body>
 </html>

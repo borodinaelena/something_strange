@@ -13,15 +13,28 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 var Post = mongoose.model('messages', { UserName: String, Email: String, MessageText: String });
 
-app.get('/', function (req, res) {
-//    var temp=Post.find();
-//    console.log(temp);
-var data = Post.find().then(function(posts){
-    console.log(posts);
-      res.render('layout', { page: 'index', data: posts});
 
+app.get('/', function (req, res) {
+    var data = Post.find().then(function(posts){
+        res.render('layout', { page: 'index', data: posts});
+    });
 });
+
+
+app.post('/', function (req, res) {
+    console.log(req.body);
+  var idDelete=req.body.id+"";
+        Post.remove({_id: idDelete}, function(err, results) {
+            if (err){
+                console.log("failed");
+                throw err;
+            }
+       console.log("success");
+        });   
+    res.json(200, {status: 'success'});
+   
 });
+
 app.get('/AboutUs', function (req, res) {
   res.render('layout', { title: 'I did it with ♥ =P', page: 'AboutUs'});
 });
